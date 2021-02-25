@@ -15,7 +15,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 time (
 cd "$DIR"
-for in_file in *.in; do
+for in_file in *.txt; do
 	echo "Running $in_file"
 	out_file="${in_file}.out"
 	time (
