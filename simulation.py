@@ -78,8 +78,8 @@ class Intersection:
             self.current_green.is_green = False
             self.i_current_green = (self.i_current_green + 1) % len(self.lights)
             self.current_green.start_green()
-
-        self.current_green.until_red -= 1
+        else:
+            self.current_green.until_red -= 1
 
 
 def simulation(input_filename, output_filename):
@@ -117,8 +117,13 @@ def simulation(input_filename, output_filename):
                 score += F + (D - t)
         for intersection in intersections.values():
             intersection.next_second()
-    print(score)
+    print(f'{score:,}')
+    return score
 
 
 if __name__ == '__main__':
-    simulation('b.txt', 'b.txt.out')
+    simulation('b.txt', 'b.txt.out')  # 4,566,384
+    simulation('c.txt', 'c.txt.out')  # 1,298,521
+    simulation('d.txt', 'd.txt.out')  # 1,571,622
+    simulation('e.txt', 'e.txt.out')  # 706,959
+    simulation('f.txt', 'f.txt.out')  # 820,480
